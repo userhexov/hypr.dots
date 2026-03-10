@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/hexov/Downloads/volnistyi-cerno-belyi-fon.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#090909",
+        "foreground": "#e7e6e7",
+        "cursor": "#e7e6e7"
+    },
+    "colors": {
+        "color0": "#090909",
+        "color1": "#909090",
+        "color2": "#A0A09F",
+        "color3": "#B0B0B0",
+        "color4": "#C0C0BF",
+        "color5": "#D5D5D5",
+        "color6": "#E1E1DF",
+        "color7": "#e7e6e7",
+        "color8": "#a1a1a1",
+        "color9": "#909090",
+        "color10": "#A0A09F",
+        "color11": "#B0B0B0",
+        "color12": "#C0C0BF",
+        "color13": "#D5D5D5",
+        "color14": "#E1E1DF",
+        "color15": "#e7e6e7"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/hexov/Downloads/1232.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#171513",
+        "foreground": "#d3dcd9",
+        "cursor": "#d3dcd9"
+    },
+    "colors": {
+        "color0": "#171513",
+        "color1": "#6DA19E",
+        "color2": "#8F958B",
+        "color3": "#A6A193",
+        "color4": "#AFB4AC",
+        "color5": "#D0BDAD",
+        "color6": "#B8C2BB",
+        "color7": "#d3dcd9",
+        "color8": "#939a97",
+        "color9": "#6DA19E",
+        "color10": "#8F958B",
+        "color11": "#A6A193",
+        "color12": "#AFB4AC",
+        "color13": "#D0BDAD",
+        "color14": "#B8C2BB",
+        "color15": "#d3dcd9"
+    }
+}

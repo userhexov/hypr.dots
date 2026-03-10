@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/hexov/Downloads/1.jpg"
+let background = "#050506"
+let foreground = "#e7e7e6"
+let cursor     = "#e7e7e6"
+
+" Colors
+let color0  = "#050506"
+let color1  = "#7F8082"
+let color2  = "#919193"
+let color3  = "#9E9FA1"
+let color4  = "#B1B1B2"
+let color5  = "#BEC0C0"
+let color6  = "#D0D0D0"
+let color7  = "#e7e7e6"
+let color8  = "#a1a1a1"
+let color9  = "#7F8082"
+let color10 = "#919193"
+let color11 = "#9E9FA1"
+let color12 = "#B1B1B2"
+let color13 = "#BEC0C0"
+let color14 = "#D0D0D0"
+let color15 = "#e7e7e6"

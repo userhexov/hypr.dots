@@ -1,0 +1,695 @@
+@import 'colors-dynamic.scss';
+
+*{
+  all: unset;
+  font-family:"JetBrainsMono Nerd Font";
+}
+
+.bar{
+  box-shadow: 0 2px 3px 1px rgba(6,6,11,0.9);
+  border-radius: 10px;
+  background-color: $bar-bg;
+  padding: 5px;
+  margin:6.5px;
+}
+
+.menu{
+  margin-left:12px;
+}
+
+.menu-eventbox{
+  color: $menu-eventbox-color;
+  transition: color 0.3s;
+  &:hover{
+    color: $menu-eventbox-hover;
+  }
+}
+
+.power{
+  margin-right:10px;
+}
+
+.power-eventbox{
+  color: $power-color;
+  font-weight:bold;
+  font-size:20px;
+  font-family: "JetBrainsMono Nerd Font";
+  transition: color 0.3s;
+  &:hover{
+    color: $power-color;
+  }
+}
+
+.ws{
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.div{
+  font-size:25px;
+  font-weight:100;
+  color: $div-color;
+}
+
+.free{
+  opacity:0.2;
+  transition: opacity 0.3s;
+  &:hover{
+    opacity:1;
+  }
+}
+
+.time-label{
+  background-color: $time-bg;
+  color:rgb(255,255,255);
+  border-radius:20px;
+  transition: color 0.3s;
+  transition: background-color 0.3s;
+  &:hover{
+    color:rgb(255,255,225);
+    background-color: $time-bg;
+  }
+}
+
+.keyboard,.battery,.volume-short, .ram-short{
+  background-color: $keyboard-bg;
+  padding:0px 13px;
+  border-radius:20px;
+  font-size:11px;
+  margin:3px 0px;
+}
+
+.volume-short{
+  color: #FFFFFF;
+}
+
+.ram-short{
+  color: #FFFFFF;
+}
+
+.keyboard{
+  color:rgb(255,255,255);
+}
+
+.kb-div,.wifi-div{
+  margin:0px 3px;
+}
+
+.kb-type,.wifi-type{
+  color: $kb-type-color;
+}
+
+.tray-button{
+  font-size:20px;
+  font-family:"JetBrainsMono Nerd Font";
+  color: $tray-color;
+  border-radius:10px;
+  transition: background-color 0.6s;
+  &:hover{
+    background-color:rgba(0,0,0,0.38);
+  }
+}
+
+.systray-shadow{
+  background-color:rgba(0,0,0,0.38);
+  margin-right:5px;
+  margin-top:3px;
+  margin-bottom:3px;
+  padding:0px 8px;
+  border-radius:20px;
+}
+
+image{
+  margin: 0px 3px;
+}
+
+menu {
+  border-radius:15px;
+  padding: 10px;
+  background-color: red;
+  color: $tray-color;
+  background-color: rgba(0,0,0,0.68);
+  menuitem {
+    border-radius: 10px;
+    padding: 8px 12px;
+  }
+  menuitem:hover {
+    background-color: rgba(70,70,220,0.85);
+  }
+}
+
+.tray-text{
+  margin-bottom:4px;
+}
+
+.wifi{
+  background-color:rgba(0,0,0,0.38);
+  padding-left: 13px;
+  padding-right: 13px;
+  color:rgb(255,255,255);
+  border-radius:20px;
+  font-size:11px;
+  margin:3px 0px;
+}
+
+.space-wifi{
+  font-size:4px;
+}
+
+.wifictl-container, .menuctl-container{
+  margin:5.5px;
+  border-radius: 20px;
+  min-width:385px;
+  background-color: $bar-bg;
+  padding: 5px;
+}
+
+.wifi-header, .cpu-header, .menu-header{
+  font-size:25px;
+  margin-left:15px;
+  margin-top:10px;
+  margin-bottom:7px;
+  color: $wifi-header-color;
+}
+
+.wifi-stats, .menu-subheader{
+  color: $wifi-stats-color;
+  margin-left:15px;
+}
+
+.nocon{
+  color: $nocon-color;
+}
+
+.yescon{
+  color: $yescon-color;
+}
+
+.network-container, .app-container{
+  min-height:15rem;
+  margin:7px;
+  margin-top:17px;
+  border-radius:15px;
+  box-shadow: 0 2px 3px 2px rgba(6,6,11,0.9);
+  background-color: $network-bg;
+}
+
+.app-container{
+  min-height:25rem;
+}
+
+.wifi-option-box, .app-option-box{
+  font-size:16px;
+  margin:5px 5px;
+  border-radius:15px;
+  padding:10px;
+  background-color:rgba(65,72,86,0.3);
+  box-shadow: 0 2px 3px 2px rgba(6,6,11,0.9);
+}
+
+.wifi-ssid{
+  margin:2px 15px;
+}
+
+.app-display{
+  margin:2px 2px;
+}
+
+.app-name{
+  margin-left:15px;
+}
+
+.wifi-ssid-01{
+  color: $wifi-ssid-01;
+}
+
+.wifi-ssid-02{
+  color: $wifi-ssid-02;
+}
+
+.wifi-ssid-03{
+  color: $wifi-ssid-03;
+}
+
+.wifi-buttons{
+  color: $tray-color;
+  border-radius:10px;
+  background-color: rgba(0,0,0,0.52);
+}
+
+.wifi-bcon{
+  margin:10px;
+}
+
+.iwifi{
+  margin-top:2px;
+  margin-left:10px;
+}
+
+.swifi-header{
+  font-size:15px;
+  margin-left:15px;
+  margin-top:10px;
+  margin-bottom:7px;
+  color: $swifi-header-color;
+}
+
+.calendar-container{
+  box-shadow: 0 2px 3px 2px #06060b;
+  margin:5.5px;
+  margin-bottom:10px;
+  border-radius: 20px;
+  background-color: $bar-bg;
+  padding: 5px;
+}
+
+.time-box{
+  box-shadow: 0 2px 3px 2px #06060b;
+  border-radius:15px;
+  margin-top:8px;
+  padding-left:25px;
+  padding-right:25px;
+  padding-bottom:20px;
+  background-color: $network-bg;
+}
+
+.time-inner{
+  color: $time-inner-color;
+  font-size:50px;
+  margin-left:4px;
+  margin-top:10px;
+}
+
+.date-inner{
+  color: $date-inner-color;
+  margin-top:20px;
+  font-size:18px;
+}
+
+.calendar-box{
+  box-shadow: 0 2px 3px 2px rgba(6,6,11,0.9);
+  border-radius:15px;
+  padding-top:10px;
+  padding-left:10px;
+  padding-right:10px;
+  margin-bottom:9px;
+  background-color: $network-bg;
+}
+
+.cal{
+  padding:5px;
+  color: $cal-color;
+  &.header{
+    color: $cal-header-color;
+  }
+  &.button{
+    color: $cal-header-color;
+    &:hover{
+      color: $cal-button-hover;
+    }
+  }
+  &:indeterminate{
+    color:rgba(205,212,246,0.4);
+  }
+  &.highlight{
+    color: $cal-highlight-color;
+  }
+}
+
+.main-container, .music-container, .cpu-container{
+  box-shadow: 0 2px 3px 2px #06060b;
+  margin:5.5px;
+  border-radius: 20px;
+  min-width:385px;
+  background-color: $bar-bg;
+  padding: 5px;
+}
+
+.profile,.graph-container{
+  min-width:370px;
+  margin:0px 7px;
+  margin-top:5px;
+  padding:10px;
+  border-radius:15px;
+  box-shadow: 0 2px 3px 2px rgba(6,6,11,0.9);
+  background-color: $network-bg;
+}
+
+.graph-container{
+  color: #FFFFFF;
+}
+
+.graph-display{
+  min-width:350px;
+}
+
+.main-temp{
+  border-radius:10px;
+  background-color:rgba(65,72,86,0.3);
+  margin-left:3px;
+  padding:5px 10px;
+}
+
+
+.pfp{
+  box-shadow: 0 2px 3px 2px rgba(6,6,11,0.9);
+  background-image: url('./Monasm.jpg');
+  background-size: 90px;
+  background-position: 50% 35%;
+  background-repeat:no-repeat;
+  min-height: 90px;
+  min-width: 90px;
+  border-radius: 100%;
+  margin-right:20px;
+}
+
+.username{
+  font-size:30px;
+  color:rgb(255,255,255);
+}
+
+.uptime{
+  color:rgb(255,255,255);
+}
+
+.minicore-container{
+  margin-top:20px;
+  margin-bottom:5px;
+}
+
+.minicores{
+  padding:7px;
+}
+
+.C0,.C1,.C2,.C3{
+  margin:0px 7px;
+  padding:10px;
+  border-radius:15px;
+  box-shadow: 0 2px 3px 2px rgba(6,6,11,0.9);
+  background-color: $network-bg;
+  color:#FFFFFF;
+}
+
+.ctlpanel{
+  min-width:230px;
+  margin-top:10px;
+  border-radius:20px;
+  padding:5px;
+  background-color:rgba(65,72,86,0.3);
+  font-family: "JetBrainsMono Nerd Font";
+  box-shadow: 0 2px 3px 2px rgba(6,6,11,0.9);
+}
+
+.shutdown{
+  color: $shutdown-color;
+  transition:color 0.3s;
+  &:hover{
+    color:#FFFFFF;
+  }
+}
+
+.logout{
+  color:#FFFFFF;
+  transition:color 0.3s;
+  &:hover{
+    color: $logout-hover;
+  }
+}
+
+.lockscr{
+  color: $lockscr-color;
+  transition:color 0.3s;
+  &:hover{
+    color:#FFFFFF;
+  }
+}
+
+.reboot{
+  color:#FFFFFF;
+  transition: color 0.3s;
+  &:hover{
+    color: $reboot-hover;
+  }
+}
+
+.suspend{
+  color: $suspend-color;
+  transition:color 0.3s;
+  &:hover{
+    color:#FFFFFF;
+  }
+}
+
+.hibernate {
+  color: #FFFFFF;
+  transition: color 0.3s;
+  &:hover {
+    color: $hibernate-hover;
+  }
+}
+
+tooltip{
+  padding:10px;
+  border-radius:20px;
+  background-color: rgba(24,24,37,0.75);
+}
+
+.sysctl{
+  margin:0px 7px;
+  margin-top:17px;
+  padding:10px;
+  box-shadow: 0 2px 3px 2px rgba(6,6,11,0.9);
+  background-color: $network-bg;
+  min-width:370px;
+  border-radius:15px;
+}
+
+
+
+.CHARGING{
+  color: #F1C40F;
+}
+
+.volico{
+  color:rgb(144, 104, 220);
+  margin-left:3px;
+}
+
+
+
+
+.sys{
+  margin:0px 10px;
+}
+
+.cpu-box, .ram-box, .disk-box{
+  margin:0px 10px;
+  border-radius:15px;
+  box-shadow: 0 2px 3px 2px rgba(6,6,11,0.9);
+  background-color:rgba(45,52,66,0.3);
+}
+
+.cpu, .ram, .disk{
+  border-radius:100px;
+  margin-top:20px;
+}
+.cpu, .cpu01{ color: $cpu-color;}
+.ram, .ram01{ color: #FFFFFF; }
+.disk, .disk01{ color: $disk-color; }
+.cpu02, .ram02, .disk02{ color: $cpu02-color; }
+
+.ramico, .diskico, .cpuico{
+  margin-right: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size:20px;
+}
+
+.cpuico{
+  margin-left:20px;
+}
+
+.ramico, .diskico{
+  margin-left:25px;
+}
+
+.cpu, .ram, .disk{
+  background-color:rgb(0,0,0);
+}
+
+.cpu-text, .ram-text, .disk-text{
+  margin-bottom:10px;
+}
+
+.ram-text, .disk-text{
+  margin-top:3.2px;
+}
+
+.sliderctl{
+  border-radius:15px;
+  box-shadow: 0 2px 3px 2px rgba(6,6,11,0.9);
+  background-color:rgba(45,52,66,0.3);
+  margin-left:20px;
+  margin-right:20px;
+  margin-top:20px;
+  margin-bottom:10px;
+}
+
+.monitor-container{
+  margin-bottom:6px;
+}
+
+.volume-slider{
+  margin-top:10px;
+  margin-left:13px;
+}
+
+.light-slider{
+  margin-bottom:10px;
+  margin-left:13px;
+}
+
+.vol trough {
+  all: unset;
+  background-color: rgba(0,0,0,0.3);
+  box-shadow: 0 2px 3px 2px rgba(6,6,11,0.3);
+  border-radius: 50px;
+  min-height: 10px;
+  min-width: 250px;
+  margin: 0 20px 0 20px;
+}
+
+.vol trough highlight {
+  all: unset;
+  background-color: $vol-highlight;
+  border-radius: 10px;
+}
+
+.volume-slider,.volume-short{
+  color: $volume-slider-color;
+}
+
+.lig trough {
+  all: unset;
+  background-color: rgba(0,0,0,0.3);
+  box-shadow: 0 2px 3px 2px rgba(6,6,11,0.3);
+  border-radius: 50px;
+  min-height: 10px;
+  min-width: 250px;
+  margin: 0 20px 0 20px;
+}
+
+.lig trough highlight {
+  all: unset;
+  background-color: $lig-highlight;
+  border-radius: 10px;
+}
+
+.light-slider{
+  color: $light-slider-color;
+}
+
+.clear-container{
+  margin:6px 10px;
+}
+
+.nheader{
+  font-size:20px;
+  color: $nheader-color;
+}
+
+.clear{
+  color: $clear-color;
+  font-size:30px;
+  transition: color 0.3s;
+  &:hover{
+    color: $clear-hover;
+  }
+}
+
+.music-title{
+  margin-left:7px;
+  margin-right:7px;
+  margin-top:7px;
+}
+
+.music-thumbnail{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 6rem;
+    min-width: 6rem;
+    border-radius: 1rem;
+}
+
+.app-ico{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 2.5rem;
+    min-width: 2.5rem;
+}
+
+.main-title{
+  margin-top:15px;
+  margin-bottom:12px;
+  margin-left:15px;
+  font-size:20px;
+  color: $main-title-color;
+}
+
+.artist{
+  color: $artist-color;
+  font-size:13px;
+  margin-left:15px;
+}
+
+.music-slider{
+  margin-top:10px;
+}
+
+.music-slider trough {
+  all: unset;
+  background-color: rgba(0,0,0,0.3);
+  box-shadow: 0 2px 3px 2px rgba(6,6,11,0.3);
+  border-radius: 50px;
+  min-height: 5px;
+  min-width: 270px;
+  margin: 0 20px 0 20px;
+}
+
+.music-slider trough highlight {
+  all: unset;
+  background-color: $music-highlight;
+  border-radius: 10px;
+}
+
+.music-timer{
+  color: $music-timer-color;
+  margin:3px 20px;
+}
+
+.mico{
+  font-size:30px;
+  margin-left:10px;
+  transition:color 0.3s;
+  &:hover{
+    color: $mico-hover;
+  }
+}
+
+.vol-mini trough {
+  all: unset;
+  margin-left:7px;
+  background-color: rgba(70,70,70,0.4);
+  border-radius: 50px;
+  min-height: 5px;
+  min-width: 100px;
+}
+
+.vol-mini trough highlight {
+  all: unset;
+  background-color: $vol-mini-highlight;
+  border-radius: 10px;
+}
