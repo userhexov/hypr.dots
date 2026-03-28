@@ -10,9 +10,10 @@ PanelWindow {
     id: dashboard
     visible: true
     exclusionMode: ExclusionMode.Ignore
-    anchors { top: true; bottom: true; right: true }
-    margins { top: 40; bottom: 10; right: root.dashboardVisible ? 6 : -450 }
+    anchors { top: true; right: true }
+    margins { top: 40; right: root.dashboardVisible ? 6 : -450 }
     implicitWidth: 420
+    implicitHeight: 490
     color: "transparent"
     focusable: true
     WlrLayershell.keyboardFocus: root.dashboardVisible ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
@@ -21,7 +22,6 @@ PanelWindow {
     property int cpuVal: 0
     property int ramVal: 0
     property int diskVal: 0
-    property int batVal: 100
     property int volVal: 50
     property int brightVal: 100
     property string configPath: Quickshell.env("HOME") + "/.config/quickshell"
@@ -301,42 +301,6 @@ PanelWindow {
 
                 Rectangle {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: 70
-                    color: Qt.rgba(0, 0, 0, 0.3)
-                    radius: 15
-                    RowLayout {
-                        anchors.fill: parent
-                        anchors.margins: 15
-                        spacing: 15
-                        Text {
-                            id: batIcon
-                            text: "󰁹"
-                            color: root.walColor2
-                            font.pixelSize: 32
-                            font.family: "JetBrainsMono Nerd Font"
-                        }
-                        ColumnLayout {
-                            Layout.fillWidth: true
-                            spacing: 3
-                            Text {
-                                text: "Battery " + dashboard.batVal + "%"
-                                color: root.walForeground
-                                font.pixelSize: 18
-                                font.family: "JetBrainsMono Nerd Font"
-                            }
-                            Text {
-                                id: batStatus
-                                text: "Checking..."
-                                color: root.walColor8
-                                font.pixelSize: 12
-                                font.family: "JetBrainsMono Nerd Font"
-                            }
-                        }
-                    }
-                }
-
-                Rectangle {
-                    Layout.fillWidth: true
                     Layout.preferredHeight: 140
                     color: Qt.rgba(0, 0, 0, 0.3)
                     radius: 15
@@ -358,6 +322,7 @@ PanelWindow {
                         anchors.fill: parent
                         anchors.margins: 15
                         spacing: 15
+
                         Row {
                             width: parent.width
                             spacing: 10
@@ -489,33 +454,6 @@ PanelWindow {
                     }
                 }
 
-                Rectangle {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    color: Qt.rgba(0, 0, 0, 0.3)
-                    radius: 15
-                    Column {
-                        anchors.fill: parent
-                        anchors.margins: 15
-                        spacing: 10
-                        Text {
-                            id: timeDisplay
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            text: "12:00:00 AM"
-                            color: root.walColor5
-                            font.pixelSize: 40
-                            font.family: "JetBrainsMono Nerd Font"
-                        }
-                        Text {
-                            id: dateDisplay
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            text: "01.01.2026, Friday"
-                            color: root.walForeground
-                            font.pixelSize: 14
-                            font.family: "JetBrainsMono Nerd Font"
-                        }
-                    }
-                }
             }
         }
     }
@@ -640,27 +578,6 @@ PanelWindow {
     }
 
     Timer {
-        interval: 1000
-        running: true
-        repeat: true
-        triggeredOnStart: true
-        onTriggered: {
-            var now = new Date()
-            var hours = now.getHours()
-            var minutes = now.getMinutes()
-            var seconds = now.getSeconds()
-            var ampm = hours >= 12 ? 'PM' : 'AM'
-            hours = hours % 12
-            hours = hours ? hours : 12
-            var h = hours < 10 ? '0' + hours : hours
-            var m = minutes < 10 ? '0' + minutes : minutes
-            var s = seconds < 10 ? '0' + seconds : seconds
-            timeDisplay.text = h + ':' + m + ':' + s + ' ' + ampm
-            dateDisplay.text = Qt.formatDate(now, "dd.MM.yyyy, dddd")
-        }
-    }
-
-    Timer {
         interval: 2000
         running: root.dashboardVisible
         repeat: true
@@ -669,8 +586,6 @@ PanelWindow {
             if (!cpuProc.running) cpuProc.running = true
             if (!ramProc.running) ramProc.running = true
             if (!diskProc.running) diskProc.running = true
-            if (!batProc.running) batProc.running = true
-            if (!batStatusProc.running) batStatusProc.running = true
             if (!volProc.running) volProc.running = true
             if (!brightProc.running) brightProc.running = true
             if (!uptimeProc.running) uptimeProc.running = true
@@ -691,43 +606,6 @@ PanelWindow {
         id: diskProc
         command: ["bash", "-c", "df / | awk 'NR==2 {gsub(/%/,\"\"); print $5}'"]
         stdout: SplitParser { onRead: data => dashboard.diskVal = parseInt(data) || 0 }
-    }
-    Process {
-        id: batProc
-        command: ["bash", "-c", "cat /sys/class/power_supply/BAT0/capacity 2>/dev/null || echo 100"]
-        stdout: SplitParser {
-            onRead: data => {
-                dashboard.batVal = parseInt(data) || 100
-                var cap = dashboard.batVal
-                if (cap >= 90) batIcon.text = "󰁹"
-                else if (cap >= 80) batIcon.text = "󰂂"
-                else if (cap >= 70) batIcon.text = "󰂁"
-                else if (cap >= 60) batIcon.text = "󰂀"
-                else if (cap >= 50) batIcon.text = "󰁿"
-                else if (cap >= 40) batIcon.text = "󰁾"
-                else if (cap >= 30) batIcon.text = "󰁽"
-                else if (cap >= 20) batIcon.text = "󰁼"
-                else if (cap >= 10) batIcon.text = "󰁻"
-                else batIcon.text = "󰁺"
-            }
-        }
-    }
-    Process {
-        id: batStatusProc
-        command: ["bash", "-c", "cat /sys/class/power_supply/BAT0/status 2>/dev/null || echo Unknown"]
-        stdout: SplitParser {
-            onRead: data => {
-                var status = data.trim()
-                if (status === "Charging") {
-                    batStatus.text = "Charging"
-                    batIcon.text = "󰂄"
-                } else if (status === "Full") {
-                    batStatus.text = "Fully charged"
-                } else {
-                    batStatus.text = "Discharging"
-                }
-            }
-        }
     }
     Process {
         id: volProc
